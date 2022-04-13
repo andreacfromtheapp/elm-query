@@ -3,7 +3,7 @@
         "keys": [
             "alt+shift+h"
         ],
-        "command": "elm_search"
+        "command": "elm_search_command"
     },
     {
         "keys": [
@@ -15,7 +15,7 @@
         "keys": [
             "ctrl+alt+shift+h"
         ],
-        "command": "elm_package"
+        "command": "elm_package_command"
     },
     {
         "keys": [

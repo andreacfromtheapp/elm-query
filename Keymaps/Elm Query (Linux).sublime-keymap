@@ -3,23 +3,23 @@
         "keys": [
             "alt+shift+h"
         ],
-        "command": "elm_search"
+        "command": "elm_search_command"
     },
     {
         "keys": [
-            "primary+shift+h"
+            "ctrl+shift+h"
         ],
         "command": "elm_search_selection"
     },
     {
         "keys": [
-            "primary+alt+shift+h"
+            "ctrl+alt+shift+h"
         ],
-        "command": "elm_package"
+        "command": "elm_package_command"
     },
     {
         "keys": [
-            "primary+alt+shift+h"
+            "ctrl+alt+shift+h"
         ],
         "command": "elm_package_selection"
     }

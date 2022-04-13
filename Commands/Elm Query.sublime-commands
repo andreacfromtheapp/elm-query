@@ -1,0 +1,26 @@
+[
+    {
+        "caption": "Preferences: Elm Query - Settings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/elm_query/Settings/Elm Query.sublime-settings",
+            "default": "{\n\t$0\n}\n"
+        }
+    },
+    {
+        "caption": "Preferences: Elm Query - Key Bindings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/elm_query/Keymaps/Elm Query (${platform}).sublime-keymap",
+            "default": "[\n\t$0\n]\n"
+        }
+    },
+    {
+        "caption": "Elm Query: Elm Search",
+        "command": "elm_search_command"
+    },
+    {
+        "caption": "Elm Query: Elm Packages",
+        "command": "elm_package_command"
+    }
+]

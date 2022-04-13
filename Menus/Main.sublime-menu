@@ -7,13 +7,13 @@
         "id": "package-settings",
         "children": [
           {
-            "caption": "Elm Search",
+            "caption": "Elm Query",
             "children": [
               {
                 "caption": "Settings",
                 "command": "edit_settings",
                 "args": {
-                  "base_file": "${packages}/elm_search/Settings/Elm Search.sublime-settings",
+                  "base_file": "${packages}/elm_query/Settings/Elm Query.sublime-settings",
                   "default": "{\n\t$0\n}\n"
                 }
               },
@@ -21,7 +21,7 @@
                 "caption": "Key Bindings",
                 "command": "edit_settings",
                 "args": {
-                  "base_file": "${packages}/elm_search/Keymaps/Elm Search (${platform}).sublime-keymap",
+                  "base_file": "${packages}/elm_query/Keymaps/Elm Query (${platform}).sublime-keymap",
                   "default": "[\n\t$0\n]\n"
                 }
               },

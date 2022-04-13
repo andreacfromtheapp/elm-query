@@ -14,45 +14,45 @@ from html.parser import HTMLParser
 results = []
 
 
-# class ElmSearchCommand(sublime_plugin.WindowCommand):
-#     def run(self):
-#         self.window.show_input_panel("Elm Search", "", elm_search, None, None)
+class ElmSearchCommandCommand(sublime_plugin.WindowCommand):
+    def run(self):
+        self.window.show_input_panel("Elm Search", "", elm_search, None, None)
 
 
-# class ElmSearchSelectionCommand(sublime_plugin.TextCommand):
-#     def run(self, _):
+class ElmSearchSelectionCommand(sublime_plugin.TextCommand):
+    def run(self, _):
 
-#         # query
-#         selection = self.view.sel()[0]
-#         if len(selection) == 0:
-#             selection = self.view.word(selection)
-#         query = self.view.substr(selection)
+        # query
+        selection = self.view.sel()[0]
+        if len(selection) == 0:
+            selection = self.view.word(selection)
+        query = self.view.substr(selection)
 
-#         elm_search(query)
-
-
-# def elm_search(input):
-#     global results
-
-#     query = urllib.parse.quote_plus(input)
-#     url = "https://klaftertief.github.io/elm-search/?q=" + query
-#     data = urllib.request.urlopen(url).read().decode()
-#     results = json.loads(data)
-
-#     formatedResult = []
-
-#     if results:
-#         for result in results:
-#             formatted = format(result)
-#             if formatted != "":
-#                 formatedResult.append(formatted)
-#     else:
-#         formatedResult.append("No results")
-
-#     sublime.active_window().show_quick_panel(formatedResult, on_done)
+        elm_search(query)
 
 
-class ElmPackageCommand(sublime_plugin.WindowCommand):
+def elm_search(input):
+    global results
+
+    query = urllib.parse.quote_plus(input)
+    url = "https://klaftertief.github.io/elm-search/?q=" + query
+    data = urllib.request.urlopen(url).read().decode()
+    results = json.loads(data)
+
+    formatedResult = []
+
+    if results:
+        for result in results:
+            formatted = format(result)
+            if formatted != "":
+                formatedResult.append(formatted)
+    else:
+        formatedResult.append("No results")
+
+    sublime.active_window().show_quick_panel(formatedResult, on_done)
+
+
+class ElmPackageCommandCommand(sublime_plugin.WindowCommand):
     def run(self):
         self.window.show_input_panel("Elm Packages", "", elm_package, None, None)
 
