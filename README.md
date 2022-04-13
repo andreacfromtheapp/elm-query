@@ -12,5 +12,5 @@ Query [Elm Packages](https://package.elm-lang.org/) to search the official modul
 
 ## Usage ##
 
-Elm Search: highlight the function name or type signature and press `yada+s`.
-Elm Packages: highlight the module name (e.g: Dict) and press `yada+p`.
+- Elm Search: highlight the function name or type signature and press `yada+s`.
+- Elm Packages: highlight the module name (e.g: Dict) and press `yada+p`.
