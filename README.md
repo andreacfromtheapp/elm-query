@@ -14,3 +14,7 @@ Query [Elm Packages](https://package.elm-lang.org/) to search the official modul
 
 - Elm Search: highlight the function name or type signature and press `yada+s`.
 - Elm Packages: highlight the module name (e.g: Dict) and press `yada+p`.
+
+## Attributions ##
+
+This package borrows the idea and some code from [Hoogle Search](https://packagecontrol.io/packages/HoogleSearch)
