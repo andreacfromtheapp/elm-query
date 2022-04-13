@@ -13,7 +13,7 @@
                 "caption": "Settings",
                 "command": "edit_settings",
                 "args": {
-                  "base_file": "${packages}/Elm Search/Settings/Elm Search.sublime-settings",
+                  "base_file": "${packages}/elm_search/Settings/Elm Search.sublime-settings",
                   "default": "{\n\t$0\n}\n"
                 }
               },
@@ -21,7 +21,7 @@
                 "caption": "Key Bindings",
                 "command": "edit_settings",
                 "args": {
-                  "base_file": "${packages}/Elm Search/Keymaps/Default.sublime-keymap",
+                  "base_file": "${packages}/elm_search/Keymaps/Elm Search (${platform}).sublime-keymap",
                   "default": "[\n\t$0\n]\n"
                 }
               },

@@ -16,10 +16,27 @@ results = []
 
 class ElmSearchCommand(sublime_plugin.WindowCommand):
     def run(self):
-        self.window.show_input_panel("Elm Query", "", search, None, None)
+        self.window.show_input_panel("Elm Search", "", search, None, None)
+
+
+class ElmPackageCommand(sublime_plugin.WindowCommand):
+    def run(self):
+        self.window.show_input_panel("Elm Packages", "", search, None, None)
 
 
 class ElmSearchSelectionCommand(sublime_plugin.TextCommand):
+    def run(self, _):
+
+        # query
+        selection = self.view.sel()[0]
+        if len(selection) == 0:
+            selection = self.view.word(selection)
+        query = self.view.substr(selection)
+
+        search(query)
+
+
+class ElmPackageSelectionCommand(sublime_plugin.TextCommand):
     def run(self, _):
 
         # query
