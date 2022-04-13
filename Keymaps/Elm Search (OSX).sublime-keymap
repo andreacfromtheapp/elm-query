@@ -1,0 +1,26 @@
+[
+    {
+        "keys": [
+            "alt+shift+h"
+        ],
+        "command": "elm_search"
+    },
+    {
+        "keys": [
+            "primary+shift+h"
+        ],
+        "command": "elm_search_selection"
+    },
+    {
+        "keys": [
+            "primary+alt+shift+h"
+        ],
+        "command": "elm_package"
+    },
+    {
+        "keys": [
+            "primary+alt+shift+h"
+        ],
+        "command": "elm_package_selection"
+    }
+]
