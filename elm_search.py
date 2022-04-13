@@ -14,26 +14,47 @@ from html.parser import HTMLParser
 results = []
 
 
-class ElmSearchCommand(sublime_plugin.WindowCommand):
-    def run(self):
-        self.window.show_input_panel("Elm Search", "", search, None, None)
+# class ElmSearchCommand(sublime_plugin.WindowCommand):
+#     def run(self):
+#         self.window.show_input_panel("Elm Search", "", elm_search, None, None)
+
+
+# class ElmSearchSelectionCommand(sublime_plugin.TextCommand):
+#     def run(self, _):
+
+#         # query
+#         selection = self.view.sel()[0]
+#         if len(selection) == 0:
+#             selection = self.view.word(selection)
+#         query = self.view.substr(selection)
+
+#         elm_search(query)
+
+
+# def elm_search(input):
+#     global results
+
+#     query = urllib.parse.quote_plus(input)
+#     url = "https://klaftertief.github.io/elm-search/?q=" + query
+#     data = urllib.request.urlopen(url).read().decode()
+#     results = json.loads(data)
+
+#     formatedResult = []
+
+#     if results:
+#         for result in results:
+#             formatted = format(result)
+#             if formatted != "":
+#                 formatedResult.append(formatted)
+#     else:
+#         formatedResult.append("No results")
+
+#     sublime.active_window().show_quick_panel(formatedResult, on_done)
 
 
 class ElmPackageCommand(sublime_plugin.WindowCommand):
     def run(self):
-        self.window.show_input_panel("Elm Packages", "", search, None, None)
-
-
-class ElmSearchSelectionCommand(sublime_plugin.TextCommand):
-    def run(self, _):
-
-        # query
-        selection = self.view.sel()[0]
-        if len(selection) == 0:
-            selection = self.view.word(selection)
-        query = self.view.substr(selection)
-
-        search(query)
+        self.window.show_input_panel("Elm Packages", "", elm_package, None, None)
 
 
 class ElmPackageSelectionCommand(sublime_plugin.TextCommand):
@@ -45,14 +66,14 @@ class ElmPackageSelectionCommand(sublime_plugin.TextCommand):
             selection = self.view.word(selection)
         query = self.view.substr(selection)
 
-        search(query)
+        elm_package(query)
 
 
-def search(input):
+def elm_package(input):
     global results
 
     query = urllib.parse.quote_plus(input)
-    url = "https://klaftertief.github.io/elm-search/?q=" + query
+    url = "https://package.elm-lang.org/" + query
     data = urllib.request.urlopen(url).read().decode()
     results = json.loads(data)
 
@@ -86,11 +107,11 @@ def format(result):
         return ""
     else:
         # split type siganture into name and type
-        res = result["item"].split("::")
+        res = result["item"].split(":")
         name = re.sub("<[^<]+?>", "", res[0])  # remove all html tags
         if len(res) == 1:  # the type might not be included
             ret = modname + " " + name
         else:
-            ret = modname + " " + name + "::" + res[1]
+            ret = modname + " " + name + " " + ":" + res[1]
 
     return HTMLParser().unescape(ret)  # decode html entities
