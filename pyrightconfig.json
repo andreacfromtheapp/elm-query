@@ -1,9 +1,0 @@
-{
-    // Install LSP-json to get validation and autocompletion in this file.
-    "venvPath": ".",
-    "venv": "myenv",
-    "extraPaths": [
-        "/Applications/Sublime Text.app/Contents/MacOS/Lib/python38",
-        "/usr/local/Caskroom/miniconda/base/bin"
-    ]
-}

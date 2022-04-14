@@ -1,5 +1,5 @@
 [tool.black]
-line-length = 80
+line-length = 79
 target-version = ['py38']
 include = '\.pyi?$'
 extend-exclude = '''
@@ -12,3 +12,7 @@ extend-exclude = '''
 pythonVersion = '3.8'
 venvPath = ''
 venv = ''
+extraPaths = [
+        "/Applications/Sublime Text.app/Contents/MacOS/Lib/python38",
+        "/usr/local/Caskroom/miniconda/base/bin"
+    ]
