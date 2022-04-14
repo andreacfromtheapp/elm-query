@@ -2,7 +2,7 @@
 
 Query [Elm Search](https://klaftertief.github.io/elm-search/) to search by function name or by approximate type signature.
 
-Query [Elm Packages](https://package.elm-lang.org/) to search the official modules documentation.
+Query [Elm Packages](https://package.elm-lang.org/) to search the official packages webiste for a keyword.
 
 ## GitHub ##
 
