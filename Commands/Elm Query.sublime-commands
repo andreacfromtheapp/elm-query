@@ -21,6 +21,10 @@
     },
     {
         "caption": "Elm Query: Elm Packages",
-        "command": "elm_package_command"
+        "command": "elm_package"
+    },
+    {
+        "caption": "Elm Query: Elm Packages",
+        "command": "elm_module"
     }
 ]

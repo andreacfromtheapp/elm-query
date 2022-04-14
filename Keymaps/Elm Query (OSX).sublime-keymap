@@ -15,13 +15,12 @@
         "keys": [
             "ctrl+alt+shift+h"
         ],
-        "command": "elm_package_command"
+        "command": "elm_package"
+    },
+    {
+        "keys": [
+            "ctrl+alt+shift+h"
+        ],
+        "command": "elm_module"
     }
-    // this would be nice, but the elm packages site doesn't work that way....
-    // {
-    //     "keys": [
-    //         "ctrl+alt+shift+h"
-    //     ],
-    //     "command": "elm_package_selection"
-    // }
 ]
