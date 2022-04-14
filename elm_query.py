@@ -6,7 +6,7 @@ import urllib.parse
 import json
 
 
-class ElmPackageCommand(sublime_plugin.WindowCommand):
+class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
     def run(self):
         self.window.show_input_panel(
             "Elm Packages", "", self.package_search, None, None
@@ -71,7 +71,7 @@ class ElmPackageCommand(sublime_plugin.WindowCommand):
         sublime.active_window().show_quick_panel(self.package_list, on_done)
 
 
-class ElmSearchCommandCommand(sublime_plugin.WindowCommand):
+class ElmSearchModuleCommand(sublime_plugin.WindowCommand):
     def run(self):
         self.window.show_input_panel("Elm Search", "", elm_search, None, None)
 
