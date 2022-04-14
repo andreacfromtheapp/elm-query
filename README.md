@@ -26,15 +26,15 @@ Query [Elm Packages](https://package.elm-lang.org/) to search the official modul
 
 1. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac) to open the Command Palette
 2. Select **Elm Query: Elm Packages**
-3. Type a module name and press `Enter`
+3. Type any word to search for a package and press `Enter`
 4. Select the desired result from the Command Palette
 5. A browser window will open to the selected result page
 
 ### Selections ###
 
 - Elm Search: highlight the function name or type signature and press `yada+s`.
-- Elm Packages: highlight the module name (e.g: Dict) and press `yada+p`.
+- Elm Packages: not available at this time.
 
 ## Attributions ##
 
-This package borrows the idea and some code from [Hoogle Search](https://packagecontrol.io/packages/HoogleSearch)
+This package borrows the idea from [Hoogle Search](https://packagecontrol.io/packages/HoogleSearch)

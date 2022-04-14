@@ -17,10 +17,11 @@
         ],
         "command": "elm_package_command"
     },
-    {
-        "keys": [
-            "ctrl+alt+shift+h"
-        ],
-        "command": "elm_package_selection"
-    }
+    // this would be nice, but the elm packages site doesn't work that way....
+    // {
+    //     "keys": [
+    //         "ctrl+alt+shift+h"
+    //     ],
+    //     "command": "elm_package_selection"
+    // }
 ]

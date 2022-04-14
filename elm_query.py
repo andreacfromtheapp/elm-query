@@ -11,15 +11,16 @@ class ElmPackageCommandCommand(sublime_plugin.WindowCommand):
         self.window.show_input_panel("Elm Packages", "", elm_package, None, None)
 
 
-class ElmPackageSelectionCommand(sublime_plugin.TextCommand):
-    def run(self, _):
-        # query
-        selection = self.view.sel()[0]
-        if len(selection) == 0:
-            selection = self.view.word(selection)
-        query = self.view.substr(selection)
+# this would be nice, but the elm packages site doesn't work that way....
+# class ElmPackageSelectionCommand(sublime_plugin.TextCommand):
+#     def run(self, _):
+#         # query
+#         selection = self.view.sel()[0]
+#         if len(selection) == 0:
+#             selection = self.view.word(selection)
+#         query = self.view.substr(selection)
 
-        elm_package(query)
+#         elm_package(query)
 
 
 def elm_package(input):
