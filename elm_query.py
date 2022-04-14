@@ -8,7 +8,9 @@ import json
 
 class ElmPackageCommandCommand(sublime_plugin.WindowCommand):
     def run(self):
-        self.window.show_input_panel("Elm Packages", "", elm_package, None, None)
+        self.window.show_input_panel(
+            "Elm Packages", "", elm_package, None, None
+        )
 
 
 def elm_package(input):
@@ -29,16 +31,22 @@ def elm_package(input):
             summary = x["summary"]
             version = x["version"]
             description = "<em>%s</em>" % sublime.html_format_command(summary)
-            homepage = "https://package.elm-lang.org/packages/{}/latest/".format(
-                package
+            homepage = (
+                "https://package.elm-lang.org/packages/{}/latest/".format(
+                    package
+                )
             )
             final_line = 'version: {}; <a href="{}">{}</a>'.format(
                 version, homepage, homepage
             )
-            package_entry = sublime.QuickPanelItem(package, [description, final_line])
+            package_entry = sublime.QuickPanelItem(
+                package, [description, final_line]
+            )
             package_list.append(package_entry)
     else:
-        package_list.append("No results")
+        package_list.append(
+            "No results found for the keyword '{}'".format(input)
+        )
 
     sublime.active_window().show_quick_panel(package_list, on_done)
 
@@ -55,27 +63,27 @@ def elm_package(input):
 #         elm_package(query)
 
 
-# class ElmSearchCommandCommand(sublime_plugin.WindowCommand):
-#     def run(self):
-#         self.window.show_input_panel("Elm Search", "", elm_search, None, None)
+class ElmSearchCommandCommand(sublime_plugin.WindowCommand):
+    def run(self):
+        self.window.show_input_panel("Elm Search", "", elm_search, None, None)
 
 
-# class ElmSearchSelectionCommand(sublime_plugin.TextCommand):
-#     def run(self, _):
+class ElmSearchSelectionCommand(sublime_plugin.TextCommand):
+    def run(self, _):
 
-#         # query
-#         selection = self.view.sel()[0]
-#         if len(selection) == 0:
-#             selection = self.view.word(selection)
-#         query = self.view.substr(selection)
+        # query
+        selection = self.view.sel()[0]
+        if len(selection) == 0:
+            selection = self.view.word(selection)
+        query = self.view.substr(selection)
 
-#         elm_search(query)
+        elm_search(query)
 
 
-# def elm_search(input):
-#     global results
+def elm_search(input):
+    global results
 
-#     query = urllib.parse.quote_plus(input)
-#     url = "https://klaftertief.github.io/elm-search/?q=" + query
-#     data = urllib.request.urlopen(url).read().decode()
-#     results = json.loads(data)
+    query = urllib.parse.quote_plus(input)
+    url = "https://klaftertief.github.io/elm-search/?q=" + query
+    data = urllib.request.urlopen(url).read().decode()
+    results = json.loads(data)
