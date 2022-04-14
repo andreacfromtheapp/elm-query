@@ -11,18 +11,6 @@ class ElmPackageCommandCommand(sublime_plugin.WindowCommand):
         self.window.show_input_panel("Elm Packages", "", elm_package, None, None)
 
 
-# this would be nice, but the elm packages site doesn't work that way....
-# class ElmPackageSelectionCommand(sublime_plugin.TextCommand):
-#     def run(self, _):
-#         # query
-#         selection = self.view.sel()[0]
-#         if len(selection) == 0:
-#             selection = self.view.word(selection)
-#         query = self.view.substr(selection)
-
-#         elm_package(query)
-
-
 def elm_package(input):
     def on_done(index):
         if index > 0:
@@ -53,6 +41,18 @@ def elm_package(input):
         package_list.append("No results")
 
     sublime.active_window().show_quick_panel(package_list, on_done)
+
+
+# this would be nice, but the elm packages site doesn't work that way....
+# class ElmPackageSelectionCommand(sublime_plugin.TextCommand):
+#     def run(self, _):
+#         # query
+#         selection = self.view.sel()[0]
+#         if len(selection) == 0:
+#             selection = self.view.word(selection)
+#         query = self.view.substr(selection)
+
+#         elm_package(query)
 
 
 # class ElmSearchCommandCommand(sublime_plugin.WindowCommand):
