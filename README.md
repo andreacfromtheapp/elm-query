@@ -1,8 +1,6 @@
 # Elm Query #
 
-Query [Elm Search](https://klaftertief.github.io/elm-search/) to search Elm Modules by function name or by approximate type signature.
-
-Query [Elm Packages](https://package.elm-lang.org/) to search Elm Packages from the official webiste by keyword.
+Search the official [Elm Packages](https://package.elm-lang.org/) website by keyword.
 
 ## Install ##
 
@@ -16,22 +14,6 @@ This package doesn't need any settings at the moment (this may change in the fut
 
 ### Commands ###
 
-#### Search Elm Modules ####
-
-1. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac) to open the Command Palette
-2. Select **Elm Query: Search Modules**
-3. Type a function name or type signature in the Input Panel, and press `Enter`
-4. Select the desired result from the list presented in the Quick Panel
-5. Press `Enter` to open a browser window for the selected Elm module
-
-##### Search Elm Modules By Selection #####
-
-1. Select some text (function name/type signature) or place the cursor in a word
-2. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac) to open the Command Palette
-3. Select **Elm Query: Search Selection** in the command palette
-4. Select the desired result from the list presented in the Quick Panel
-5. Press `Enter` to open a browser window for the selected Elm module
-
 #### Search Elm Packages ####
 
 1. Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac) to open the Command Palette
@@ -40,24 +22,28 @@ This package doesn't need any settings at the moment (this may change in the fut
 4. Select the desired result from the list presented in the Quick Panel
 5. Press `Enter` to open a browser window for the selected Elm package
 
+#### Search Elm Modules ####
+
+This package was initially intended to also have the functionality to search the [Elm Search website](https://klaftertief.github.io/elm-search/) to look up Elm modules by function name or type signature.
+
+Unfortunately this is not presently possible, because of how the Elm Search website is structured. Which would require unavailable scenarios for this to work:
+
+- Elm Search to offer a JSON file for the results so that it could be parsed (like `Elm Query: Search Packages` works)
+- Elm official website to re-implement Elm Search with JSON and updated/improved code
+- Sublime Text to allow third party Python modules so that it could be possible to use tools to obviate the above
+
+It is my intention to offer Elm Search functionality one day soon. I can't promise, and my Elm skills are still basic, but I may contribute to the Elm-related side of the solution. Don't hold your breath though...
+
 ### Key Bindings ###
 
-Should you want to create key bindings for you convenience, these are the underlying commands:
+Should you need key bindings, these are the currently implemented commands:
 
 ```json
 [
     {
         "caption": "Elm Query: Search Packages",
         "command": "elm_search_package"
-    },
-    {
-        "caption": "Elm Query: Search Modules",
-        "command": "elm_search_module"
-    },
-    {
-        "caption": "Elm Query: Search Selection",
-        "command": "elm_search_selection"
-    },
+    }
 ] 
 ```
 

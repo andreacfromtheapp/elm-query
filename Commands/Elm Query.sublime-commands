@@ -3,12 +3,12 @@
         "caption": "Elm Query: Search Packages",
         "command": "elm_search_package"
     },
-    {
-        "caption": "Elm Query: Search Modules",
-        "command": "elm_search_module"
-    },
-    {
-        "caption": "Elm Query: Search Selection",
-        "command": "elm_search_selection"
-    },
+    // {
+    //     "caption": "Elm Query: Search Modules",
+    //     "command": "elm_search_module"
+    // },
+    // {
+    //     "caption": "Elm Query: Search Selection",
+    //     "command": "elm_search_selection"
+    // },
 ]

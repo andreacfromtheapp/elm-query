@@ -83,27 +83,24 @@ class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
             webbrowser.open(link_to_open, 2)
 
 
-class ElmSearchModuleCommand(sublime_plugin.WindowCommand):
-    def run(self):
-        self.window.show_input_panel("Elm Search", "", elm_search, None, None)
+# class ElmSearchModuleCommand(sublime_plugin.WindowCommand):
+#     def run(self):
+#         self.window.show_input_panel("Elm Search", "", elm_search, None, None)
 
 
-class ElmSearchSelectionCommand(sublime_plugin.TextCommand):
-    def run(self, _):
+# class ElmSearchSelectionCommand(sublime_plugin.TextCommand):
+#     def run(self, _):
+#         # get a query text from selected text or word under the mouse
+#         selection = self.view.sel()[0]
+#         if len(selection) == 0:
+#             selection = self.view.word(selection)
+#         query = self.view.substr(selection)
+#         # call elm search with said query
+#         elm_search(query)
 
-        # query
-        selection = self.view.sel()[0]
-        if len(selection) == 0:
-            selection = self.view.word(selection)
-        query = self.view.substr(selection)
 
-        elm_search(query)
-
-
-def elm_search(input):
-    global results
-
-    query = urllib.parse.quote_plus(input)
-    url = "https://klaftertief.github.io/elm-search/?q=" + query
-    data = urllib.request.urlopen(url).read().decode()
-    results = json.loads(data)
+# def elm_search(input):
+#     query = urllib.parse.quote_plus(input)
+#     url = "https://klaftertief.github.io/elm-search/?q=" + query
+#     html = urllib.request.urlopen(url).read().decode("utf-8")
+#     print(html)
