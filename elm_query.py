@@ -5,6 +5,14 @@ import urllib.request
 import urllib.parse
 import json
 
+# not using requests just yet because
+# https://package.elm-lang.org cert fails SSL checks
+# cert is valid but it's Grade B for using old TLS 1.0
+# will use requests when that's fixed upstream...
+# import requests
+# text = requests.get(cls.url)
+# text.json()
+
 
 class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
     package_list = []
