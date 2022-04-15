@@ -72,11 +72,14 @@ class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
     @classmethod
     def on_done(cls, index):
         if index >= 0:
-            link_to_open = (
-                "https://package.elm-lang.org/packages/{}/latest/".format(
-                    cls.package_list[index].trigger
+            if cls.error:
+                link_to_open = "https://github.com/gacallea/elm-query/issues"
+            else:
+                link_to_open = (
+                    "https://package.elm-lang.org/packages/{}/latest/".format(
+                        cls.package_list[index].trigger
+                    )
                 )
-            )
             webbrowser.open(link_to_open, 2)
 
 
