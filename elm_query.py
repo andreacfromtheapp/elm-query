@@ -7,31 +7,30 @@ import json
 
 
 class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
+    package_list = []
+
     def run(self):
         self.window.show_input_panel(
             "Elm Packages", "", self.package_search, None, None
         )
 
-    def package_search(self, input):
-        self.url = "https://package.elm-lang.org/search.json"
-        self.results = []
-        self.package_list = []
-        self.error = False
-
-        def on_done(index):
-            if index >= 0:
-                webbrowser.open(homepage, 2)
+    @classmethod
+    def package_search(cls, input):
+        cls.url = "https://package.elm-lang.org/search.json"
+        cls.package_list.clear()
+        cls.results = []
+        cls.error = False
 
         try:
-            text = urllib.request.urlopen(self.url).read().decode()
+            text = urllib.request.urlopen(cls.url).read().decode()
             data = json.loads(text)
-            self.results = [
+            cls.results = [
                 x for x in data if input in x["name"] or input in x["summary"]
             ]
         except IOError:
-            self.error = True
+            cls.error = True
 
-        if self.error:
+        if cls.error:
             message = "Something did not go as intended... Sorry."
             summary = "Press <Enter> to file an issue on GitHub"
             description = "<em>%s</em>" % sublime.html_format_command(summary)
@@ -40,10 +39,10 @@ class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
             error_entry = sublime.QuickPanelItem(
                 message, [description, final_line]
             )
-            self.package_list.append(error_entry)
+            cls.package_list.append(error_entry)
 
-        elif self.results:
-            for x in self.results:
+        elif cls.results:
+            for x in cls.results:
                 package = x["name"]
                 summary = x["summary"]
                 version = x["version"]
@@ -61,14 +60,24 @@ class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
                 package_entry = sublime.QuickPanelItem(
                     package, [description, final_line]
                 )
-                self.package_list.append(package_entry)
+                cls.package_list.append(package_entry)
 
         else:
-            self.package_list.append(
+            cls.package_list.append(
                 "No results found for the keyword '{}'".format(input)
             )
 
-        sublime.active_window().show_quick_panel(self.package_list, on_done)
+        sublime.active_window().show_quick_panel(cls.package_list, cls.on_done)
+
+    @classmethod
+    def on_done(cls, index):
+        if index >= 0:
+            link_to_open = (
+                "https://package.elm-lang.org/packages/{}/latest/".format(
+                    cls.package_list[index].trigger
+                )
+            )
+            webbrowser.open(link_to_open, 2)
 
 
 class ElmSearchModuleCommand(sublime_plugin.WindowCommand):
