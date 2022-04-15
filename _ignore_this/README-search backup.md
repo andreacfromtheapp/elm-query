@@ -69,11 +69,13 @@ Should have any issues with this package:
 
 - [https://github.com/gacallea/elm-query/issues](https://github.com/gacallea/elm-query/issues)
 
-### Contributions are welcome :) ###
+## Contributing ##
 
-I'm no Python developer, and I did my best. Should you find "bad" Python code,
-feel free to contribute PRs. I do intend to improve both my Python and the package.
+If you would like to contribute enhancements or fixes, please do the following:
 
-## Attributions ##
+1. Fork the plugin repository.
+2. Hack on a separate topic branch created from the latest `master`.
+3. Commit and push the topic branch.
+4. Make a pull request.
 
-This package borrows the idea from, and share some code with, [Hoogle Search](https://packagecontrol.io/packages/HoogleSearch)
+Contributions should follow the guidelines specified in the [pyproject.toml](./pyproject.toml) file. (**flake8**, **black**).
