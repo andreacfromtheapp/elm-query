@@ -47,12 +47,6 @@ Should you need key bindings, these are the currently implemented commands:
 ] 
 ```
 
-## GitHub ##
-
-Should have any issues with this package:
-
-- [https://github.com/gacallea/elm-query/issues](https://github.com/gacallea/elm-query/issues)
-
 ## Contributing ##
 
 If you would like to contribute enhancements or fixes, please do the following:

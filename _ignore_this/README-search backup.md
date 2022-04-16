@@ -63,12 +63,6 @@ Should you want to create key bindings for you convenience, these are the underl
 ] 
 ```
 
-## GitHub ##
-
-Should have any issues with this package:
-
-- [https://github.com/gacallea/elm-query/issues](https://github.com/gacallea/elm-query/issues)
-
 ## Contributing ##
 
 If you would like to contribute enhancements or fixes, please do the following:
