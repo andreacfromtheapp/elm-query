@@ -10,7 +10,7 @@ Search the official [Elm Packages](https://package.elm-lang.org/) website by key
 
 ## Usage ##
 
-This package doesn't need any settings at the moment (this may change in the future).
+This package doesn't need any settings (this may change in the future).
 
 ### Commands ###
 
@@ -49,11 +49,4 @@ Should you need key bindings, these are the currently implemented commands:
 
 ## Contributing ##
 
-If you would like to contribute enhancements or fixes, please do the following:
-
-1. Fork the plugin repository.
-2. Hack on a separate topic branch created from the latest `master`.
-3. Commit and push the topic branch.
-4. Make a pull request.
-
-Contributions should follow the guidelines specified in the [pyproject.toml](./pyproject.toml) file. (**flake8**, **black**).
+Contributions are more than welcome :) Should you like to help out, please bear in mind that contribution should follow the guidelines specified in the [pyproject.toml](./pyproject.toml) file. (**flake8**, **black**).
