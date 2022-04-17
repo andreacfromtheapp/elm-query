@@ -4,7 +4,9 @@ Thank you for installing this package. I hope you can find this useful :)
 
 ## Usage ##
 
-This package doesn't need any settings at the moment (this may change in the future).
+### Settings ###
+
+You can set a valid alternative URL (e.g: [https://elm.dmy.fr](https://elm.dmy.fr)) if you really want to.
 
 ### Commands ###
 
