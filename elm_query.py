@@ -1,17 +1,7 @@
 import sublime
 import sublime_plugin
+import requests
 import webbrowser
-import urllib.request
-import urllib.parse
-import json
-
-# not using requests just yet because
-# https://package.elm-lang.org cert fails SSL checks
-# cert is valid but it's Grade B for using old TLS 1.0
-# will use requests when that's fixed upstream...
-# import requests
-# text = requests.get(cls.url)
-# text.json()
 
 
 class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
@@ -30,8 +20,9 @@ class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
         cls.error = False
 
         try:
-            text = urllib.request.urlopen(cls.url).read().decode()
-            data = json.loads(text)
+            # https://package.elm-lang.org cert fails SSL checks
+            # cert is valid but it's Grade B. hence verify=false
+            data = requests.get(cls.url, verify=False).json()
             cls.results = [
                 x for x in data if input in x["name"] or input in x["summary"]
             ]
