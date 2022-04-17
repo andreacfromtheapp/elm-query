@@ -60,10 +60,8 @@ class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
                 description = "<em>%s</em>" % sublime.html_format_command(
                     summary
                 )
-                homepage = (
-                    "https://package.elm-lang.org/packages/{}/latest/".format(
-                        package
-                    )
+                homepage = ("{}/packages/{}/latest/".format(
+                        cls.packages_domain, package)
                 )
                 final_line = 'version: {}; <a href="{}">{}</a>'.format(
                     version, homepage, homepage
