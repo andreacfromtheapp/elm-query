@@ -1,5 +1,13 @@
 [
     {
+        "caption": "Preferences: Elm Query Settings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/elm_query/Settings/Elm Query.sublime-settings",
+            "default": "{\n\t$0\n}\n"
+        }
+    },
+    {
         "caption": "Elm Query: Search Packages",
         "command": "elm_search_package"
     },

@@ -5,6 +5,7 @@ import webbrowser
 
 
 class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
+    packages_domain = ""
     package_list = []
 
     def run(self):
@@ -13,16 +14,27 @@ class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
         )
 
     @classmethod
+    def package_search_url(cls):
+        settings = sublime.load_settings("Elm Query.sublime-settings")
+        packages_domain = settings.get("package_search_url")
+
+        if not packages_domain:
+            packages_domain = "https://package.elm-lang.org"
+
+        return packages_domain
+
+    @classmethod
     def package_search(cls, input):
-        cls.url = "https://package.elm-lang.org/search.json"
         cls.package_list.clear()
         cls.results = []
         cls.error = False
+        cls.packages_domain = cls.package_search_url()
+        cls.search_url = cls.packages_domain + "/search.json"
 
         try:
             # https://package.elm-lang.org cert fails SSL checks
             # cert is valid but it's Grade B. hence verify=false
-            data = requests.get(cls.url, verify=False).json()
+            data = requests.get(cls.search_url, verify=False).json()
             cls.results = [
                 x for x in data if input in x["name"] or input in x["summary"]
             ]
@@ -75,7 +87,8 @@ class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
                 link_to_open = "https://github.com/gacallea/elm-query/issues"
             else:
                 link_to_open = (
-                    "https://package.elm-lang.org/packages/{}/latest/".format(
+                    "{}/packages/{}/latest/".format(
+                        cls.packages_domain, 
                         cls.package_list[index].trigger
                     )
                 )

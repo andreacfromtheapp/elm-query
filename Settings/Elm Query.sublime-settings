@@ -1,0 +1,4 @@
+{
+    // you could set "https://elm.dmy.fr" as an alternative
+    "package_search_url": "https://package.elm-lang.org"
+}
