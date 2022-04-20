@@ -6,7 +6,7 @@ import webbrowser
 
 class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
     packages_domain = ""
-    package_list = []
+    packages_list = []
 
     def run(self):
         self.window.show_input_panel(
@@ -25,7 +25,7 @@ class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
 
     @classmethod
     def package_search(cls, input):
-        cls.package_list.clear()
+        cls.packages_list.clear()
         cls.results = []
         cls.error = False
         cls.packages_domain = cls.package_search_url()
@@ -50,7 +50,7 @@ class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
             error_entry = sublime.QuickPanelItem(
                 message, [description, final_line]
             )
-            cls.package_list.append(error_entry)
+            cls.packages_list.append(error_entry)
 
         elif cls.results:
             for x in cls.results:
@@ -69,14 +69,14 @@ class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
                 package_entry = sublime.QuickPanelItem(
                     package, [description, final_line]
                 )
-                cls.package_list.append(package_entry)
+                cls.packages_list.append(package_entry)
 
         else:
-            cls.package_list.append(
+            cls.packages_list.append(
                 "No results found for the keyword '{}'".format(input)
             )
 
-        sublime.active_window().show_quick_panel(cls.package_list, cls.on_done)
+        sublime.active_window().show_quick_panel(cls.packages_list, cls.on_done)
 
     @classmethod
     def on_done(cls, index):
@@ -87,7 +87,7 @@ class ElmSearchPackageCommand(sublime_plugin.WindowCommand):
                 link_to_open = (
                     "{}/packages/{}/latest/".format(
                         cls.packages_domain, 
-                        cls.package_list[index].trigger
+                        cls.packages_list[index].trigger
                     )
                 )
             webbrowser.open(link_to_open, 2)
