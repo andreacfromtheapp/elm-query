@@ -14,7 +14,9 @@ Query [Elm Packages](https://package.elm-lang.org/) to search Elm Packages from 
 
 ## Usage ##
 
-This package doesn't need any settings (this may change in the future).
+### Settings ###
+
+You can set a valid alternative URL (e.g: [https://elm.dmy.fr](https://elm.dmy.fr)) if you really want to.
 
 ### Commands ###
 
